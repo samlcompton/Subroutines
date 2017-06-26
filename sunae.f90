@@ -153,6 +153,8 @@ implicit none
       latrad=lat*rad
 
 !   calculate azimuth and elevation
+!   note that if the azimuth calculation returns NaN that arguments must be between -1 and 1&
+!   user may wish to add code ensuring that the arguments are in this range
       el=asin(sin(dec)*sin(latrad)+cos(dec)*cos(latrad)*cos(ha))
       az=asin(-cos(dec)*sin(ha)/cos(el))
 
